@@ -1,3 +1,11 @@
+html {
+  font-family: sans-serif;
+}
+
+.web-font {
+  font-family: 'Ubuntu', sans-serif;
+}
+
 .nav-wrapper {
   /* display: none; */
   display: flex;
@@ -5,7 +13,7 @@
 }
 
 .flex-left,
-.flex-right{
+.flex-right {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31,16 +39,43 @@
   z-index: 1;
 }
 
+.flex-left-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  /* margin: -3em 0 0; */
+  width: 350px;
+  height: 250px;
+}
+
 .flex-left .title,
 .flex-left p {
   position: relative;
+  margin: 0 0 0.5em;
   color: white;
+  text-align: center;
+  line-height: 1em;
   letter-spacing: 1px;
   z-index: 2;
 }
 
 .flex-left .title {
-  margin: -3em 0 0;
+  font-size: 3em;
+}
+
+.flex-left .title span {
+  font-weight: normal;
+}
+
+.flex-left-inner>a {
+  margin: 1.5em;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: white;
+  border: 2px solid white;
+  border-radius: 1.5em;
+  z-index: 2;
 }
 
 .flex-right {
@@ -54,23 +89,27 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 25vh;
+  height: 33.33vh;
   min-height: 170px;
   margin: 0;
   overflow: hidden;
 }
 
-.menu > img {
+.menu>img {
   width: 100%;
   height: auto;
   transition: transform 0.3s;
+}
+
+.menu.firefox>img {
+  transform: scale(1.5);
 }
 
 figure.menu.about {
   align-items: flex-end;
 }
 
-.menu > a {
+.menu>a {
   position: absolute;
   display: flex;
   justify-content: center;
@@ -81,24 +120,28 @@ figure.menu.about {
   color: white;
 }
 
-.chromium > a {
+.chromium>a {
   background-color: rgba(0, 1, 185, 0.75);
 }
 
-.firefox > a {
+.firefox>a {
   background-color: rgba(196, 0, 0, 0.75);
 }
 
-.others > a {
-  background-color: rgba(106, 0, 200, 0.75);
+.others>a {
+  background-color: rgba(158, 142, 0, 0.75);
 }
 
-.about > a {
+.about>a {
   background-color: rgba(0, 65, 65, 0.75);
 }
 
 figure.menu:hover img {
-  transform: scale(1.17);
+  transform: scale(1.15);
+}
+
+figure.menu.firefox:hover img {
+  transform: scale(1.73);
 }
 
 /*  */
@@ -109,7 +152,7 @@ section {
   flex-direction: row-reverse;
 }
 
-section > .section-aside {
+section>.section-aside {
   position: sticky;
   top: 0;
   width: 300px;
@@ -117,14 +160,11 @@ section > .section-aside {
   color: white;
 }
 
-
-
 /* aside > .section-title {
   width: 5em;
   height: 1.5em;
 } */
-
-aside > h2 {
+aside>h2 {
   position: absolute;
   top: 0;
   right: 0;
@@ -139,8 +179,7 @@ aside > h2 {
   padding: 0.5em 2em;
   font-size: 2.5em;
 } */
-
-section > .container {
+section>.container {
   width: 100%;
   height: 100vh;
 }
@@ -154,7 +193,7 @@ section > .container {
 }
 
 .section-others .section-aside {
-    background-color: rgb(106, 0, 200);
+  background-color: rgb(106, 0, 200);
 }
 
 .section-about .section-aside {
