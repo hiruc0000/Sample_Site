@@ -1,0 +1,98 @@
+.nav-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-left,
+.flex-right{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+}
+
+.flex-left {
+  position: relative;
+  background-image: url(../images/abstract.jpg);
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.flex-left::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: rgba(85, 75, 112, 0.8);
+  z-index: 1;
+}
+
+.flex-left .title,
+.flex-left p {
+  position: relative;
+  color: white;
+  letter-spacing: 1px;
+  z-index: 2;
+}
+
+.flex-left .title {
+  margin: -3em 0 0;
+}
+
+.flex-right {
+  height: 100%;
+  overflow: hidden;
+}
+
+.flex-right .menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 25vh;
+  min-height: 170px;
+  overflow: hidden;
+}
+
+.menu > img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s;
+  /* cursor: pointer; */
+}
+
+.menu > a {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: white;
+  /* pointer-events: none; */
+}
+
+.chromium > a {
+  background-color: rgba(0, 1, 185, 0.75);
+}
+
+.firefox > a {
+  background-color: rgba(196, 0, 0, 0.75);
+}
+
+.others > a {
+  background-color: rgba(106, 0, 200, 0.75);
+}
+
+.about > a {
+  background-color: rgba(0, 65, 65, 0.75);
+}
+
+.menu > a:hover img {
+  transform: scale(1.15);
+}
