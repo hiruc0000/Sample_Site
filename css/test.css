@@ -79,7 +79,7 @@ html {
   transition: box-shadow 0.25s;
 }
 
-.flex-left-inner > .modal-button:hover {
+.flex-left-inner>.modal-button:hover {
   box-shadow: inset 0 0 15px 5px white;
 }
 
@@ -149,8 +149,14 @@ figure.menu.firefox:hover img {
   transform: scale(1.73);
 }
 
-
 /**************************SECTION****************************/
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .section-header {
   display: flex;
   justify-content: center;
@@ -159,9 +165,65 @@ figure.menu.firefox:hover img {
   height: 100px;
 }
 
-.section-header > h2 {
+.section-header>h2 {
   margin: 0;
   color: white;
+}
+
+.section .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section .container .product {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  max-width: 1024px;
+  margin-top: 4em;
+  padding-bottom: 4em;
+}
+
+.product:nth-of-type(even) {
+  padding-left: calc(50% - 50vw);
+  padding-right: calc(50% - 50vw);
+  background-color: rgb(240, 240, 240);
+}
+
+.section .container .product .img {
+  margin-top: 2em;
+}
+
+.section .container .product .browser-link {}
+
+.product .container .browser-link>ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+}
+
+.product .container .browser-link>ul li {
+  /* padding: 0.3em 2em; */
+  margin-top: 1.5em;
+}
+
+.product .container .browser-link>ul li:nth-child(n+2) {
+  margin-left: 1.5em;
+}
+
+.product .container .browser-link>ul li a {
+  padding: 0.5em 2em;
+  color: white;
+  text-decoration: none;
+  background-color: black;
 }
 
 .section-footer {
@@ -178,21 +240,33 @@ figure.menu.firefox:hover img {
   font-size: 0.9em;
 }
 
-.chromium .section-header, .chromium .section-footer{
+.chromium .section-header, .chromium .section-footer {
   background-color: rgb(0, 1, 185);
 }
-.firefox .section-header, .firefox .section-footer{
+
+.firefox .section-header, .firefox .section-footer {
   background-color: rgb(196, 0, 0);
 }
-.others .section-header, .others .section-footer{
+
+.others .section-header, .others .section-footer {
   background-color: rgb(158, 142, 0);
 }
 
-
 /********** MODAL **********/
-.modal { display: flex; justify-content: center; align-items: center;
-position:absolute; top:0; right: 0; bottom: 0; left: 0; background-color:
-rgba(13, 13, 13, 0.75); visibility: hidden; opacity: 0; z-index: -5;
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(13, 13, 13, 0.5);
+  visibility: hidden;
+  opacity: 0;
+  z-index: -5;
+  transition: visibility 0.3s, opacity 0.3s, z-index 0.3s;
 }
 
 .modal-container {
@@ -200,10 +274,12 @@ rgba(13, 13, 13, 0.75); visibility: hidden; opacity: 0; z-index: -5;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
+  width: 70%;
   height: 65%;
   background-color: white;
   box-shadow: 0 0 20px 10px white;
+  transform: scale(0.7);
+  transition: transform 0.3s;
 }
 
 .modal-container .modal-header, .modal-container .modal-footer {
@@ -216,8 +292,13 @@ rgba(13, 13, 13, 0.75); visibility: hidden; opacity: 0; z-index: -5;
   background-color: rgb(0, 65, 65);
 }
 
+.modal-container .modal-footer {
+  margin-top: 1em;
+}
+
 .modal-header h2 {
-margin: 0;
+  margin: 0;
+  font-size: 2em;
 }
 
 .modal-footer p {
@@ -226,9 +307,10 @@ margin: 0;
 }
 
 .modal-container .content {
-  margin: 0.5em 2.5em;
-  font-size: 0.9em;
+  margin: 1.5em 2.5em;
+  font-size: 0.8em;
   letter-spacing: 1px;
+  overflow: auto;
 }
 
 .modal-container .content ul {
@@ -238,8 +320,8 @@ margin: 0;
 }
 
 .modal-close-button {
-  margin: 2.5em auto -1em;
-  padding: 0.5em 1em;
+  margin: auto auto 0;
+  padding: 0.3em 1em;
   width: 110px;
   color: black;
   font-size: 1em;
@@ -249,6 +331,17 @@ margin: 0;
   transition: box-shadow 0.25s;
 }
 
- .modal-container .content .modal-close-button:hover {
+.modal-container .modal-close-button:hover {
   box-shadow: inset 0 0 10px 5px black;
+}
+
+/* modal open add class*/
+.modal-open {
+  visibility: visible;
+  opacity: 1;
+  z-index: 150;
+}
+
+.modal-open .modal-container {
+  transform: scale(1);
 }
