@@ -1,5 +1,6 @@
 html {
-  font-family: Arial, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;;
+  font-family: Arial, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  ;
 }
 
 .web-font {
@@ -14,20 +15,26 @@ html {
 
 .flex-left,
 .flex-right {
+  width: 50vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50vw;
 }
 
 .flex-left {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  /* position: relative; */
   background-image: url(../images/abstract.jpg);
   overflow: hidden;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  z-index: 100;
+  transition: left 0.4s;
 }
 
 .flex-left::after {
@@ -84,8 +91,13 @@ html {
 }
 
 .flex-right {
+  position: fixed;
+  top: 0;
+  right: 0;
   height: 100%;
   overflow: hidden;
+  z-index: 100;
+  transition: right 0.4s;
 }
 
 .flex-right figure.menu {
@@ -149,15 +161,38 @@ figure.menu.firefox:hover img {
   transform: scale(1.73);
 }
 
+.flex-slide-left {
+  left: -50vw;
+}
+
+.flex-slide-right {
+  right: -50vw;
+}
+
 /***************************************************************/
 /************************** SECTION ****************************/
 /***************************************************************/
 /* SECTION HEADER & FOOTER */
 .section {
-  display: flex;
+  display: none;
+  /* display: flex; */
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 50;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.section-appear {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
 }
 
 .section-header {
@@ -203,14 +238,14 @@ figure.menu.firefox:hover img {
   align-items: center; */
 }
 
-.section-main > h2 {
+.section-main>h2 {
   position: relative;
   margin-top: 3em;
   margin-bottom: 0;
   text-align: center;
 }
 
-.section-main > h2:before {
+.section-main>h2:before {
   content: attr(data-title);
   position: absolute;
   top: -0.6em;
@@ -219,13 +254,15 @@ figure.menu.firefox:hover img {
   transform: translateX(-50%);
 }
 
-.chromium .section-main > h2:before {
+.chromium .section-main>h2:before {
   color: rgba(104, 106, 210, 0.2);
 }
-.firefox .section-main > h2:before {
+
+.firefox .section-main>h2:before {
   color: rgba(255, 87, 87, 0.2);
 }
-.others .section-main > h2:before {
+
+.others .section-main>h2:before {
   color: rgba(249, 232, 87, 0.2);
 }
 
@@ -251,7 +288,7 @@ figure.menu.firefox:hover img {
   overflow: hidden;
 }
 
-.section .content .content-inner .img img{
+.section .content .content-inner .img img {
   width: 100%;
   height: auto;
 }
@@ -265,7 +302,7 @@ figure.menu.firefox:hover img {
   background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.3) 40%, rgba(0, 0, 0, 0.45) 65%, rgba(0, 0, 0, 0.6));
 }
 
-.section .content .content-inner .img .title > h3 {
+.section .content .content-inner .img .title>h3 {
   margin: 0.5em;
 }
 
@@ -280,7 +317,7 @@ figure.menu.firefox:hover img {
   line-height: 1.6em;
 }
 
-.section .content .content-inner .link-block ul{
+.section .content .content-inner .link-block ul {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -313,7 +350,7 @@ figure.menu.firefox:hover img {
 
 .section .content .content-inner ul li a {
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
@@ -324,11 +361,11 @@ figure.menu.firefox:hover img {
   transition: color 0.3s;
 }
 
-.section .content .content-inner ul li:hover{
+.section .content .content-inner ul li:hover {
   background-color: white;
 }
 
-.section .content .content-inner ul li:hover a{
+.section .content .content-inner ul li:hover a {
   color: black;
 }
 
@@ -356,8 +393,8 @@ figure.menu.firefox:hover img {
   background-color: rgba(13, 13, 13, 0.5);
   visibility: hidden;
   opacity: 0;
-  z-index: -5;
-  transition: visibility 0.3s, opacity 0.3s, z-index 0.3s;
+  z-index: -1;
+  transition: visibility 0.3s, opacity 0.3s, z-index 0.5s;
 }
 
 .modal-container {
@@ -430,9 +467,86 @@ figure.menu.firefox:hover img {
 .modal-open {
   visibility: visible;
   opacity: 1;
-  z-index: 150;
+  z-index: 400;
 }
 
 .modal-open .modal-container {
   transform: scale(1);
+}
+
+/*********************************************/
+/*********** CLOSE CURTAINS BUTTON ***********/
+/*********************************************/
+.close-curtains {
+  position: fixed;
+  top: 30px;
+  right: 50px;
+  width: 44px;
+  height: 44px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  box-sizing: border-box;
+  cursor: pointer;
+  /* visibility: hidden; */
+  /* opacity: 0; */
+  /* z-index: -10; */
+  transition: bottom 0.7s, opacity 0.7s, visibility 0.7s;
+}
+
+.close-curtains .curtains::before {
+  position: absolute;
+  content: '';
+  top: 31px;
+  left: 6px;
+  width: 28px;
+  height: 28px;
+  border-top: 2px solid #fff;
+  transform-origin: top right;
+  transform: rotate(45deg);
+  box-sizing: border-box;
+}
+
+.close-curtains .curtains::after {
+  position: absolute;
+  content: '';
+  top: 31px;
+  left: 12px;
+  width: 28px;
+  height: 28px;
+  border-top: 2px solid #fff;
+  transform-origin: top left;
+  transform: rotate(-45deg);
+  box-sizing: border-box;
+}
+
+/*************************************/
+/*********** TO TOP BUTTON ***********/
+/*************************************/
+.to-top {
+  position: fixed;
+  right: 50px;
+  bottom: 30px;
+  width: 44px;
+  height: 44px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  box-sizing: border-box;
+  cursor: pointer;
+  /* visibility: hidden; */
+  /* opacity: 0; */
+  /* z-index: -10; */
+  transition: bottom 0.7s, opacity 0.7s, visibility 0.7s;
+}
+
+.to-top .top::after {
+  position: absolute;
+  content: '';
+  top: 17px;
+  left: 14px;
+  width: 16px;
+  height: 16px;
+  border-top: 2px solid #fff;
+  border-left: 2px solid #fff;
+  transform: rotate(45deg);
+  box-sizing: border-box;
 }
