@@ -3,7 +3,7 @@
 
   for (let i = 0; i < toTopButtons.length; i++) {
     document.addEventListener('scroll', () => {
-      addStickyAndAppear(toTopButtons[i], 'appear', 500);
+      addAppear(toTopButtons[i], 'appear', 500);
     });
 
     toTopButtons[i].addEventListener('click', () => {
@@ -15,7 +15,7 @@
   }
 
 
-  function addStickyAndAppear(element, addClass, pixel) {
+  function addAppear(element, addClass, pixel) {
   const offset = pageYOffset;
 
   if (offset > pixel && !element.classList.contains(addClass)) {
