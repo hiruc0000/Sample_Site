@@ -11,7 +11,7 @@
       flexLeft.classList.remove('flex-slide-left');
       flexRight.classList.remove('flex-slide-right');
 
-      setTimeout(hideSection, 200);
+      setTimeout(hideSection, 250);
 
       function hideSection () {
         appear[i].classList.remove('section-appear');
