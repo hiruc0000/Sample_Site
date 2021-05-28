@@ -28,7 +28,7 @@ html {
   left: 0;
   height: 100vh;
   /* position: relative; */
-  background-image: url(../images/abstract.jpg);
+  background-image: url(../images/unsplash.jpg);
   overflow: hidden;
   background-position: center;
   background-size: cover;
@@ -52,8 +52,8 @@ html {
   justify-content: flex-start;
   align-items: center;
   margin: -3em 0 0;
-  width: 350px;
-  height: 250px;
+  width: 380px;
+  height: 300px;
 }
 
 .flex-left .title,
@@ -67,6 +67,11 @@ html {
   z-index: 2;
 }
 
+.flex-left p > a {
+  text-decoration: none;
+  color:rgb(16, 214, 208);
+}
+
 .flex-left .title {
   font-size: 3em;
 }
@@ -76,7 +81,7 @@ html {
 }
 
 .flex-left-inner>.modal-button {
-  margin: 2em;
+  margin: 1em;
   padding: 0.3em 1em;
   color: white;
   font-size: 1em;
@@ -426,7 +431,7 @@ figure.menu.firefox:hover img {
 
 .modal-header h2 {
   margin: 0;
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 .modal-footer p {
