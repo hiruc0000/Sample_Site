@@ -1,4 +1,5 @@
 (() => {
+  const navWrapper = document.querySelector('.nav-wrapper');
   const closeButton = document.querySelectorAll('.close-curtains');
 
   const flexLeft = document.querySelector('.flex-left');
@@ -10,6 +11,8 @@
     closeButton[i].addEventListener('click', () => {
       flexLeft.classList.remove('flex-slide-left');
       flexRight.classList.remove('flex-slide-right');
+
+      navWrapper.classList.remove('z-index-control');
 
       setTimeout(hideSection, 250);
 
