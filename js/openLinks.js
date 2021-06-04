@@ -15,10 +15,6 @@
         });
       }
     }
-  }
-
-  for (let i = 0; i < links.length; i++) {
-    const linkAgent = links[i].getAttribute('data-agent');
 
     if (linkAgent === 'android') {
       if (/(android)/i.test(navigator.userAgent)) {
@@ -28,6 +24,4 @@
       }
     }
   }
-
-
 })();
