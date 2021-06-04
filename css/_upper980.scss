@@ -1,0 +1,224 @@
+//************************************************
+//**************TOP MENU (LEFT SIDE)**************
+//************************************************
+
+.nav-wrapper {
+  overflow-y: unset;
+  display: flex;
+  flex-direction: row;
+  z-index: 350;
+
+  & .flex-left {
+    top: 0;
+    left: 0;
+    width: 50vw;
+    height: 100vh;
+    transition: left 0.4s ease-in-out;
+    z-index: 350;
+
+    &__inner {
+      margin: -5em 0 0;
+    }
+
+    &.flex-slide-left {
+      left: -50vw;
+    }
+  }
+
+
+
+  & .modal-button {
+    font-size: 1em;
+
+    &:hover {
+      box-shadow: inset 0 0 15px 5px white;
+    }
+  }
+}
+//************************************************
+//**************TOP MENU (RIGHT SIDE)**************
+//************************************************
+
+.nav-wrapper {
+  & .flex-right {
+    top: 0;
+    right: 0;
+    width: 50vw;
+    transition: right 0.4s ease-in-out;
+    z-index: 350;
+
+    & figure.menu {
+      height: 33.33vh;
+
+      & > img {
+        transition: transform 0.3s;
+      }
+
+      &.firefox {
+        & > img {
+          transform: scale(1.5);
+        }
+
+        &:hover {
+          & > img {
+            transform: scale(1.73);
+          }
+        }
+      }
+
+      &.about {
+        align-items: flex-end;
+      }
+
+      &:hover img {
+        transform: scale(1.15);
+      }
+    }
+
+    &.flex-slide-right {
+      right: -50vw;
+    }
+  }
+}
+// /***************************************************************/
+// /************************** SECTION ****************************/
+// /***************************************************************/
+// /* SECTION HEADER & FOOTER */
+// COLORING
+// /* SECTION MAIN CONTENT */
+
+.section-main {
+  width: 100%;
+}
+
+// COLORING
+// ******************SECTION CONTENTS********************
+
+.section {
+  width: 100%;
+
+  & .section-main {
+    width: 100%;
+
+    & .content {
+      width: 100%;
+
+      & .content-inner {
+        width: 70%;
+
+        & .description {
+          padding-bottom: 2em;
+        }
+
+        & .link-block {
+          & > ul {
+            display: flex;
+            flex-direction: row;
+
+            & li {
+              &.button {
+                transition: background-color 0.3s;
+              }
+
+              & a {
+                color: white;
+                transition: color 0.3s;
+              }
+
+              &:nth-of-type(n+2) {
+                margin-top: 0;
+                margin-left: 2em;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// ***************LINK HOVER*****************
+
+.section {
+  & .content {
+    & .content-inner {
+      & .link-block {
+        & ul {
+          & li {
+            &.button {
+              &:hover {
+                background-color: white;
+
+                & a {
+                  color: black;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// /***********************************************/
+// /******************** MODAL ********************/
+// /***********************************************/
+
+.modal {
+  & .modal-container {
+    width: 70%;
+    height: 65%;
+
+    & .modal-header {
+      & h2 {
+        margin: 0;
+        font-size: 1.5em;
+      }
+    }
+
+    & .content {
+      margin: 1.5em 2.5em;
+      font-size: 0.9em;
+    }
+  }
+
+  & .modal-close-button {
+    font-size: 1em;
+    cursor: pointer;
+    transition: box-shadow 0.25s;
+
+    &:hover {
+      box-shadow: inset 0 0 10px 5px black;
+    }
+  }
+
+  & .modal-footer {
+    & p {
+      font-size: 0.9em;
+    }
+  }
+}
+// /*********************************************/
+// /*********** CLOSE CURTAINS BUTTON ***********/
+// /*********************************************/
+
+.close-curtains {
+  position: fixed;
+  top: 30px;
+  right: 80px;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+}
+// /*************************************/
+// /*********** TO TOP BUTTON ***********/
+// /*************************************/
+
+.to-top {
+  position: fixed;
+  right: 80px;
+  bottom: 30px;
+
+  &.appear {
+    bottom: 40px;
+  }
+}
