@@ -15,7 +15,7 @@
     } else if (linkAgent === 'android') {
       if (/android/i.test(navigator.userAgent)) {
         links.forEach((link) => {
-          link.href = link.href.replace('https://play.google.com/store/apps/', 'market://');
+          link.href = link.href.replace('https://play.google.com/store/apps/', 'market://///');
         });
       }
     }
