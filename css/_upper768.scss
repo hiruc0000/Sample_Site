@@ -1,0 +1,79 @@
+.nav-wrapper {
+  & .flex-left {
+    &__inner {
+      & .modal-button {
+        font-size: 1em;
+      }
+    }
+
+    & .title {
+      font-size: 3em;
+    }
+
+    & p {
+      font-size: 0.9em;
+    }
+  }
+}
+//************************************************
+//**************TOP MENU (RIGHT SIDE)**************
+//************************************************
+
+
+// /***************************************************************/
+// /************************** SECTION ****************************/
+// /***************************************************************/
+// /* SECTION HEADER & FOOTER */
+
+
+// /* SECTION MAIN CONTENT */
+
+
+// ******************SECTION CONTENTS********************
+.section {
+  & .section-main {
+    & .content {
+      & .content-inner {
+        width: 85%;
+
+        & .link-block {
+          & > ul {
+            display: flex;
+            flex-direction: row;
+
+            & li {
+              &.button {
+                transition: background-color 0.3s;
+              }
+
+              & a {
+                color: white;
+                transition: color 0.3s;
+              }
+
+              &:nth-of-type(n+2) {
+                margin-top: 0;
+                margin-left: 2em;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// /***********************************************/
+// /******************** MODAL ********************/
+// /***********************************************/
+
+.modal {
+  & .modal-container {
+    width: 75%;
+    height: 65%;
+
+    & .content {
+      margin: 1.5em;
+    }
+  }
+}
