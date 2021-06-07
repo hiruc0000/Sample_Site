@@ -1,0 +1,11 @@
+@import 'base';
+
+@media (min-width: 577px) {
+  @import 'upper577';
+}
+@media (min-width: 768px){
+  @import 'upper768';
+}
+@media (min-width: 980px){
+  @import 'upper980';
+}
